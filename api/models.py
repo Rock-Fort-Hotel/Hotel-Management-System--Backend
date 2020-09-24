@@ -40,9 +40,10 @@ class reservation(models.Model):
     children = models.CharField(max_length=5, validators=[RegexValidator(r'^\d{1,10}$')])
     date_time = models.DateTimeField(auto_now=True, auto_now_add=False)
     paid_status = models.CharField(max_length=10)
+
     room_id = models.ForeignKey('room', models.DO_NOTHING, default="", null=True)
-    ro_id = models.ForeignKey('room_offer', models.DO_NOTHING, default="")
-    cID = models.ForeignKey('customer', models.DO_NOTHING, default="")
+    ro_id = models.ForeignKey('room_offer', models.DO_NOTHING, default="", null=True)
+    cID = models.ForeignKey('customer', on_delete=models.CASCADE, default="")
     
     def __str__(self):
         return self.res_id

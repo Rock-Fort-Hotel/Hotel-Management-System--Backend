@@ -6,10 +6,12 @@ from rest_framework.response import Response
 #serializers
 from .serializers import ReservationSerializer
 from .serializers import RoomSerializer
+from .serializers import CustomerSerializer
 
 #models
 from .models import reservation
 from .models import room
+from .models import customer
 
 # Create your views here.
 @api_view(['GET'])
@@ -61,8 +63,34 @@ def ResUpdate(request, pk):
         return Response(new_data)
     return Response(serializer.data)
 
+#get rooms
 @api_view(['GET'])
 def GetRooms(request):
     getRooms = room.objects.all()
     serializer = RoomSerializer(getRooms, many=True)
     return Response(serializer.data)
+
+#get customers
+@api_view(['GET'])
+def GetCustomer(request):
+    getCustomer = customer.objects.all()
+    serializer = CustomerSerializer(getCustomer, many=True)
+    return Response(serializer.data)
+
+#create customer
+@api_view(['POST'])
+def CustomerCreate(request):
+    serializer = CustomerSerializer(data=request.data)
+    if serializer.is_valid(raise_exception=True):
+        serializer.save()
+        new_data = serializer.data
+        return Response(new_data)
+    return Response(serializer.data)
+
+#delete customer
+@api_view(['DELETE'])
+def CustDelete(request, pk):
+    
+    custdel = customer.objects.get(cID=pk)
+    custdel.delete()
+    return Response("deleted")
