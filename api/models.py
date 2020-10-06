@@ -100,6 +100,7 @@ class tour_package(models.Model):
     def __str__(self):
         return self.packID
 
+
 class tour(models.Model):
 
     tID = models.CharField(max_length=10,primary_key=True, unique=True)
@@ -112,6 +113,7 @@ class tour(models.Model):
 
     def __str__(self):
         return self.tID
+
 
 class employee(models.Model):
     empID = models.CharField(max_length=10,primary_key=True, unique=True)
