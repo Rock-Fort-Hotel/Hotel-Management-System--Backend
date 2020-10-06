@@ -248,6 +248,7 @@ class income(models.Model):
     def __str__(self):
         return self.income_id
 
+
 class reservationPay(models.Model):
     rpay_id = models.CharField(max_length=10,primary_key=True, unique=True)
     amount = models.FloatField()
@@ -256,6 +257,7 @@ class reservationPay(models.Model):
 
     def __str__(self):
         return self.rpay_id
+
 
 class tourPay(models.Model):
     tpay_id = models.CharField(max_length=10,primary_key=True, unique=True)
