@@ -270,6 +270,9 @@ class tourPay(models.Model):
     def __str__(self):
         return self.tpay_id
 
+
+
+
 class eventPay(models.Model):
     epay_id = models.CharField(max_length=10,primary_key=True, unique=True)
     amount = models.FloatField()
