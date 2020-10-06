@@ -231,6 +231,7 @@ class budget(models.Model):
     def __str__(self):
         return self.budgetID
 
+
 class expenses(models.Model):
     expensesID = models.CharField(max_length=10,primary_key=True, unique=True)
     refID = models.CharField(max_length=10)
@@ -241,13 +242,13 @@ class expenses(models.Model):
     def __str__(self):
         return self.expensesID
 
+
 class income(models.Model):
     income_id = models.CharField(max_length=10,primary_key=True, unique=True)
     date_time = models.DateTimeField(auto_now=True, auto_now_add=False)
 
     def __str__(self):
         return self.income_id
-
 
 class reservationPay(models.Model):
     rpay_id = models.CharField(max_length=10,primary_key=True, unique=True)
@@ -257,7 +258,6 @@ class reservationPay(models.Model):
 
     def __str__(self):
         return self.rpay_id
-
 
 class tourPay(models.Model):
     tpay_id = models.CharField(max_length=10,primary_key=True, unique=True)
