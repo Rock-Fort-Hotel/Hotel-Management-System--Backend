@@ -20,7 +20,7 @@ class room_offer(models.Model):
         return self.ro_id
 
 class customer(models.Model):
-    cID = models.CharField(max_length=10,primary_key=True, unique=True)
+    cID = models.CharField(max_length=100,primary_key=True, unique=True)
     fName = models.CharField(max_length=20)
     lName = models.CharField(max_length=20)
     nic = models.CharField(max_length=20)
