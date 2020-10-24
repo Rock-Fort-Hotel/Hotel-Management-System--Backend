@@ -282,5 +282,31 @@ class eventPay(models.Model):
     def __str__(self):
         return self.epay_id
 
+#testjini
+
+
+class report(models.Model):
+    date = models.DateField(auto_now=False, auto_now_add= False)
+    time = models.TimeField(auto_now=False, auto_now_add=False)
+    details = models.CharField(max_length=200)
+    trans_id = models.CharField(max_length=30)
+    amount = models.FloatField()
+
+class confirmation(models.Model):
+    con_date = models.DateField(auto_now=False, auto_now_add= False)
+    con_time = models.TimeField(auto_now=False, auto_now_add=False)
+    con_details = models.CharField(max_length=200)
+    con_trans_id = models.CharField(max_length=30)
+    con_amount = models.FloatField()
+    con_status = models.CharField(max_length=10)
+
+class outstanding(models.Model):
+    out_date = models.DateField(auto_now=False, auto_now_add= False)
+    out_time = models.TimeField(auto_now=False, auto_now_add=False)
+    out_details = models.CharField(max_length=200)
+    out_trans_id = models.CharField(max_length=30)
+    out_amount = models.FloatField()
+    out_status = models.CharField(max_length=10)
+
 
 
